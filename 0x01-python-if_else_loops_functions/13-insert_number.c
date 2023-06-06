@@ -1,4 +1,4 @@
-
+#include "lists.h"
 /**
  * insert_node - Inserts node into sorted linkedlist
  *
