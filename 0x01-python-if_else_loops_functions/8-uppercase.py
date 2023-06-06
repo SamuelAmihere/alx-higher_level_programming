@@ -7,5 +7,5 @@ def uppercase(str):
         elif (_ord + 32) in range(97, 123):
             ch = chr(num)
 
-        print("{}".format(ch))
+        print("{}".format(ch), end="")
     print("")
