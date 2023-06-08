@@ -4,7 +4,7 @@ if __name__ == "__main__":
 
     ac = len(sys.argv) - 1
 
-    header = "{} argument{}:".format(
+    header = "{} argument{}".format(
             ac,
             "." if ac == 0 else "s:" if ac != 1 else ":")
 
