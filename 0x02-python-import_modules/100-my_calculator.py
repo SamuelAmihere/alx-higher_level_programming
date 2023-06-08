@@ -12,15 +12,17 @@ if __name__ == "__main__":
             "Usage: ./100-my_calculator.py <a> <operator> <b>"))
         exit(1)
 
-    ops = ['+', '-', '*', '/']
-    funcs = [add, sub, mul, div]
+    ops = [('+', add), ('-', sub), ('*', mul), ('/', div)]
+    not_found = True
 
-    for op, fn in zip(ops, funcs):
-        if op == av[1]:
+    for op in ops:
+        if op[0] == av[1]:
+            not_found = False
             print("{} {} {} = {}".format(
-                av[0], av[1], av[2],
-                fn(int(av[0]), int(av[2]))))
-        else:
-            print("{}".format(
-                "Unknown operator. Available operators: +, -, * and /"))
-            exit(1)
+                av[0], op[0], av[2],
+                op[1](int(av[0]), int(av[2]))))
+
+    if not_found:
+        print("{}".format(
+            "Unknown operator. Available operators: +, -, * and /"))
+        exit(1)
