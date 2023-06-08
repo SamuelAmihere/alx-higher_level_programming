@@ -4,9 +4,9 @@ if __name__ == "__main__":
 
     ac = len(sys.argv) - 1
 
-    header ="{} argument{}:".format(
+    header = "{} argument{}:".format(
             ac,
-            "." if ac == 0  else "s:" if ac != 1 else ":")
+            "." if ac == 0 else "s:" if ac != 1 else ":")
 
     print("{}".format(header))
 
@@ -14,4 +14,3 @@ if __name__ == "__main__":
         av = sys.argv[1:]
         for n, arg in enumerate(av):
             print("{}: {}".format(n + 1, av[n]))
-
