@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     header = "{} argument{}".format(
             ac,
-            "." if ac == 0 else "s:" if ac != 1 else ":")
+            ":" if ac == 1 else "s:" if ac > 0 else ".")
 
     print("{}".format(header))
 
