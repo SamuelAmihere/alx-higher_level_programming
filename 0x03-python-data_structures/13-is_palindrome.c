@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * list_len - Finds number of elements in a linked
@@ -14,7 +15,7 @@ size_t list_len(listint_t **h)
 	while (*h)
 	{
 		count += 1;
-		*h = (*h->)next;
+		*h = (*h)->next;
 	}
 
 	return (count);
