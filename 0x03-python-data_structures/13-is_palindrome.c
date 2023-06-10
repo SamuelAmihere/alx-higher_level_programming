@@ -54,6 +54,8 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 		i++;
 	}
+	free(prev);
+	free(curr);
 	/* compare the stored values */
 	len = 0;
 	for (; i >= 0; i--)
