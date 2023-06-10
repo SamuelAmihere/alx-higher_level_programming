@@ -2,25 +2,34 @@
 #include <stdio.h>
 
 /**
- * list_len - Finds number of elements in a linked
+ * reverse_listint - Reverses a
  *
- * @h: struct whose elements to be print elememts
+ * @head: Starting node
  *
- * Return: number of elements in a linked
+ * Return: 1 on success, -1 on failure
  */
-size_t list_len(listint_t **h)
+listint_t *reverse_listint(listint_t **head)
 {
-	size_t count = 0;
+	listint_t *temp, *curr;
 
-	while (*h)
+	if (*head == NULL || (*head)->next == NULL)
+		return (*head);
+
+	temp = NULL;
+	curr = NULL;
+	while (*head)
 	{
-		count += 1;
-		*h = (*h)->next;
+		curr = (*head)->next;
+		(*head)->next = temp;
+		temp = *head;
+		*head = curr;
 	}
 
-	return (count);
-}
+	*head = temp;
 
+	return (*head);
+
+}
 /**
  * is_palindrome - Checks if a singly linked list is a palindrome.
  *
@@ -30,43 +39,25 @@ size_t list_len(listint_t **h)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *prev, *curr;
-	int len, i = 0, *temp;
+	listint_t *prev, *curr, *temp = reverse_listint(head);
 
-	if (!head || !((*head)->next))
+	if (!head || !((*head)->next) || !temp)
 		return (1);
 
-	len = list_len(head);
-	temp = malloc(len * sizeof(int));
-	if (!temp)
-	{
-		printf("Could not allocate memory\n");
-		exit(1);
-	}
 	curr = *head;
 	prev = NULL;
 
-	/* Move to the end of linkedlist and store the values */
 	while (curr)
 	{
-		temp[i] = curr->n;
+		if (temp->n != curr->n)
+			return (0);
 		prev = curr;
 		curr = curr->next;
-		i++;
+		temp = temp->next;
 	}
-	free(prev);
+	free(prev)
 	free(curr);
-	/* compare the stored values */
-	len = 0;
-	for (; i >= 0; i--)
-	{
-		if (temp[i] != temp[len])
-		{
-			free(temp);
-			return (0);
-		}
-	}
-	free(temp);
+	free(temp)
 	return (1);
 
 }
