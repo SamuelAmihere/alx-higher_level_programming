@@ -55,9 +55,7 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 		temp = temp->next;
 	}
-	free(prev)
-	free(curr);
-	free(temp)
+	free(prev);
 	return (1);
 
 }
