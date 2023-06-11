@@ -13,7 +13,8 @@ void print_python_list_info(PyObject *p)
 
 	while (count < p_size)
 	{
-		printf("Element %i: %s\n", count,
+		printf("Element %i: %s\n",
+				count,
 				Py_TYPE(ob->ob_item[count])->tp_name);
 		count++;
 	}
