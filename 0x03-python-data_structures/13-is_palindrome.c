@@ -5,10 +5,11 @@
  * reverse_listint - Reverses a
  *
  * @head: Starting node
+ * @n: size of list
  *
  * Return: 1 on success, -1 on failure
  */
-listint_t *reverse_listint(listint_t **head)
+listint_t *reverse_listint(listint_t **head, int *n)
 {
 	listint_t *temp, *curr;
 
@@ -23,6 +24,7 @@ listint_t *reverse_listint(listint_t **head)
 		(*head)->next = temp;
 		temp = *head;
 		*head = curr;
+		n++;
 	}
 
 	*head = temp;
@@ -40,19 +42,21 @@ listint_t *reverse_listint(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *curr, *temp;
+	int *n = 0, i = 1;
 
 	if (!head)
 		return (1);
 
-	temp = reverse_listint(head);
+	temp = reverse_listint(head, &n);
 	curr = *head;
 
-	while (curr)
+	while (curr && (i * 2 == n || i * 2 -1 == n))
 	{
 		if (temp->n != curr->n)
 			return (0);
 		curr = curr->next;
 		temp = temp->next;
+		i++;
 	}
 	return (1);
 
