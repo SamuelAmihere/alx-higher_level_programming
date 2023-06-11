@@ -30,6 +30,7 @@ int is_palindrome(listint_t **head)
 	if (ahead)
 		slow = slow->next;
 
+	/* Compare first and last half */
 	while (slow && prev)
 	{
 		if (slow->n != prev->n)
