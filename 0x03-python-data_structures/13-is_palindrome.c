@@ -39,24 +39,21 @@ listint_t *reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *prev, *curr, *temp;
+	listint_t *curr, *temp;
 
 	if (!head)
 		return (1);
 
 	temp = reverse_listint(head);
 	curr = *head;
-	prev = NULL;
 
 	while (curr)
 	{
 		if (temp->n != curr->n)
 			return (0);
-		prev = curr;
 		curr = curr->next;
 		temp = temp->next;
 	}
-	(void)prev;
 	return (1);
 
 }
