@@ -1,16 +1,7 @@
-#include <object.h>
-#include <Python.h>
 #include <listobject.h>
-#include <stdio.h>
+#include <Python.h>
+#include <object.h>
 
-/**
- * print_python_list_info - Prints information about
- * python list objects
- *
- * @p: Python list object
- * 
- * Return: Nothing
- */
 void print_python_list_info(PyObject *p)
 {
 	int count = 0;
