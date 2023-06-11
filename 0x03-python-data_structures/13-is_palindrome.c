@@ -2,40 +2,6 @@
 #include <stdio.h>
 
 /**
- * reverse_listint - Reverses a
- *
- * @head: Starting node
- * @n: size of list
- *
- * Return: 1 on success, -1 on failure
- */
-listint_t *reverse_listint(listint_t **head, size_t *n)
-{
-	listint_t *temp, *curr;
-	size_t count = 0;
-
-	if (*head == NULL || (*head)->next == NULL)
-		return (*head);
-
-	temp = NULL;
-	curr = NULL;
-	while (*head)
-	{
-		curr = (*head)->next;
-		(*head)->next = temp;
-		temp = *head;
-		*head = curr;
-
-		count++;
-	}
-
-	*head = temp;
-	*n = count;
-
-	return (*head);
-
-}
-/**
  * is_palindrome - Checks if a singly linked list is a palindrome.
  *
  * @head: A pointer to a singly linked list
@@ -44,23 +10,32 @@ listint_t *reverse_listint(listint_t **head, size_t *n)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *curr, *temp;
-	int n = 0, i = 1;
+	listint_t *slow = *head, *ahead = *head;
+	listint_t *prev = NULL, *temp;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (!head || !(*head)->next)
 		return (1);
 
-	temp = reverse_listint(head, (size_t *) &n);
-	curr = *head;
-
-	while (curr && (i * 2 <= n || i * 2 -1 <= n))
+	/* Locate the middle node using ahead and slow pointers*/
+	while (ahead && ahead->next)
 	{
-		i++;
-		if (temp->n != curr->n)
+		ahead = ahead->next->next;
+		temp = slow;
+		slow = slow->next;
+		temp->next = prev;
+		prev = temp;
+	}
+
+	/* Handle odd list*/
+	if (ahead)
+		slow = slow->next;
+
+	while (slow && prev)
+	{
+		if (slow->n != prev->n)
 			return (0);
-		curr = curr->next;
-		temp = temp->next;
+		slow = slow->next;
+		prev = prev->next;
 	}
 	return (1);
-
 }
