@@ -3,6 +3,14 @@
 #include <listobject.h>
 #include <stdio.h>
 
+/**
+ * print_python_list_info - Prints information about
+ * python list objects
+ *
+ * @p: Python list object
+ * 
+ * Return: Nothing
+ */
 void print_python_list_info(PyObject *p)
 {
 	int count = 0;
@@ -14,7 +22,7 @@ void print_python_list_info(PyObject *p)
 
 	while (count < p_size)
 	{
-		printf("Element %i: %s\n", i,
+		printf("Element %i: %s\n", count,
 				Py_TYPE(ob->ob_item[count])->tp_name);
 		count++;
 	}
