@@ -61,6 +61,8 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 		temp = temp->next;
 	}
+	if (!temp)
+		return (1);
 	return (1);
 
 }
