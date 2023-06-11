@@ -13,7 +13,7 @@ int is_palindrome(listint_t **head)
 	listint_t *slow = *head, *ahead = *head;
 	listint_t *prev = NULL, *temp;
 
-	if (!head || !(*head)->next)
+	if (!head)
 		return (1);
 
 	/* Locate the middle node using ahead and slow pointers*/
