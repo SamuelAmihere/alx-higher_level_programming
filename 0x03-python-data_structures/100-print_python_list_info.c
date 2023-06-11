@@ -3,14 +3,6 @@
 #include <listobject.h>
 #include <stdio.h>
 
-/**
- * print_python_list_info - Prints information about
- * list python objects
- *
- * @p: Python object
- *
- * Return: nothing
- */
 void print_python_list_info(PyObject *p)
 {
 	int count = 0;
