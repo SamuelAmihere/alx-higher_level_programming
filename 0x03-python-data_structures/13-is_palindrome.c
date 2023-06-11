@@ -47,7 +47,7 @@ int is_palindrome(listint_t **head)
 	listint_t *curr, *temp;
 	int n = 0, i = 1;
 
-	if (!head (*head)->next == NULL)
+	if (!head || (*head)->next == NULL)
 		return (1);
 
 	temp = reverse_listint(head, (size_t *) &n);
