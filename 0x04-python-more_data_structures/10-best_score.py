@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    temp = [(v, k) for k, v in a_dictionary.items()]
-    temp.sort(reverse=True)
-    return tem[0][1]
+    if (a_dictionary == None):
+        return a_dictionary
+
+    temp = list(a_dictionary.items())
+    temp.sort(key = lambda kv: kv[1], reverse=True)
+
+    return temp[0][1]
