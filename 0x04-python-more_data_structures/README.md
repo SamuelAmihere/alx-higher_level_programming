@@ -1,6 +1,6 @@
 # Python - More Data Structures: Set, Dictionary
 
-<img src="https://images.unsplash.com/photo-1456428746267-a1756408f782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=400" alt="Image" width="1000" height="400" style="width: 17.3cm; height: 12.5cm;">
+<img src="https://images.unsplash.com/photo-1456428746267-a1756408f782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=400" alt="Image" width="1000" height="200" style="width: 17.3cm; height: 12.5cm;">
 
 This repository contains Python scripts that demonstrate various operations and manipulations on sets, dictionaries, and other data structures. Each script focuses on a specific task and provides an implementation for it. Below is a brief description of each script and its corresponding task.
 
