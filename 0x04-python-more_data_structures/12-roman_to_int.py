@@ -11,7 +11,7 @@ def roman_to_int(roman_string):
         temp, i = {}, 1
 
         while (n >= 0):
-            rom, dec = roman_string[n], dc[roman_string[n]]
+            rom, dec = roman_string[n], rom_dec[roman_string[n]]
             if (n + 1) < len(roman_string):
                 prev_rom = roman_string[n + 1]
             else:
@@ -23,7 +23,7 @@ def roman_to_int(roman_string):
                 temp[rom] = [dec]
 
             # compare current roman numeral to previous
-            if (dc[rom] < dc[prev_rom]):
+            if (rom_dec[rom] < rom_dec[prev_rom]):
                 # reduce value
                 result -= temp[rom].pop()
             else:
