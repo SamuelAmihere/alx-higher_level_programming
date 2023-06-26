@@ -4,10 +4,12 @@ def list_division(my_list_1, my_list_2, list_length):
     temp = []
 
     for n, i in enumerate(my_list_2):
+        if n >= list_length:
+            break
         try:
             try:
                 result = my_list_1[n] / i
-            except (IndexError, UnboundLocalError):
+            except (IndexError):
                 print("out of range")
                 result = 0
         except ZeroDivisionError:
