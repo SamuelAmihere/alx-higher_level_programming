@@ -8,12 +8,12 @@ def safe_print_list(my_list=[], x=0):
 
         try:
             print(my_list[n], end="")
-            n++;
+            n += 1
         except KeyError:
-            pass
+            break
     
     if n > 0:
-        print("");
+        print("")
         return (n + 1)
     else:
         return (0)
