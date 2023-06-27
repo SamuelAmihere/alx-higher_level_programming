@@ -28,7 +28,7 @@ class Square:
     def size(self, value):
         """
         Sets size property of the square.
-        
+
         Args:
             value (int): size of square - a side.
 
