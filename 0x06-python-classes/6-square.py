@@ -14,7 +14,7 @@ class Square:
 
         Args:
             size: size of square - a side.
-            position: position of square - a tuple of 2 
+            position: position of square - a tuple of 2
                       positive integers.
         """
         self.__size = size
@@ -59,7 +59,7 @@ class Square:
         Sets position property of the square.
 
         Args:
-            value (tuple): position of square - a tuple of 2 
+            value (tuple): position of square - a tuple of 2
                            positive integers.
 
         Raises:
@@ -88,7 +88,7 @@ class Square:
             for k in range(self.__position[1]):
                 print()
             for i in range(self.__size):
-                for l in range(self.__position[0]):
+                for _ in range(self.__position[0]):
                     print(" ", end="")
                 for j in range(self.__size):
                     print("#", end="")
