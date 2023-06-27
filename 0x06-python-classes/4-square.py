@@ -38,8 +38,8 @@ class Square:
             value (int): size of square - a side.
 
         Raises:
-            ValueError: size must be >= 0
             TypeError: size must be an integer
+            ValueError: size must be >= 0
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
