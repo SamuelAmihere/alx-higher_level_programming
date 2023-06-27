@@ -3,7 +3,8 @@
 
 
 class Square:
-    """Square class.
+    """
+    Square class.
 
     Attributes:
         size: size of square - a side.
@@ -12,14 +13,23 @@ class Square:
         """Initialize Square class.
 
         Args:
-            size(int): size of square - a side.
+            size: size of square - a side.
         """
         self.__size = size
-    
+
+    def area(self):
+        """Calculates area of the square.
+        
+        Returns: area of the square
+        """
+        return self.__size ** 2
+
+    @property
     def size(self):
         """Gets size of the square."""
         return self.__size
 
+    @size.setter
     def size(self, value):
         """Sets size property of the square.
         
@@ -36,7 +46,3 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-
-    def area(self):
-        """Returns area of the square."""
-        return self.__size ** 2
