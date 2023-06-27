@@ -4,7 +4,7 @@
 
 class Square:
     """
-    Square class.
+    Square class: based on 3-square.py.
 
     Attributes:
         size: size of square - a side.
@@ -15,30 +15,19 @@ class Square:
         Args:
             size: size of square - a side.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
-
-    def area(self):
-        """
-        Calculates area of the square.
-        
-        Returns: area of the square
-        """
-        return self.__size ** 2
+        self.__size = size
 
     @property
     def size(self):
-        """Returns the size of the square.
+        """
+        Returns the size of the square.
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Sets size property of the square.
+        """
+        Sets size property of the square.
         
         Args:
             value (int): size of square - a side.
@@ -53,3 +42,11 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
+
+    def area(self):
+        """
+        Calculates area of the square.
+
+        Returns: area of the square
+        """
+        return self.__size ** 2
