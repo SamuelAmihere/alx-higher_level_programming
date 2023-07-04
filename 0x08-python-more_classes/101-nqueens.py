@@ -95,8 +95,8 @@ if __name__ == "__main__":
     chessboard = ChessBoard(n)
     solutions = chessboard.solveNQ()
 
-    if len(solutions) == 0:
-        print("No solutions found.")
-    else:
+    if len(solutions) > 0:
         for solution in solutions:
             print(solution)
+    else:
+        print("No solutions found.")
