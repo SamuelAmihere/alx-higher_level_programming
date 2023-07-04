@@ -3,4 +3,5 @@
 
 
 class LockedClass:
-    __slots__ = ['first_name']
+    """Creates slots for only first_name attribute"""
+    __slots__= ['first_name']
