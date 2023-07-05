@@ -78,7 +78,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 2:
-        print("Usage: nqueens.py N")
+        print("Usage: nqueens N")
         sys.exit(1)
 
     try:
