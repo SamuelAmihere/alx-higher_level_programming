@@ -12,7 +12,6 @@ class ChessBoard:
         """
         self.n = n
         self.board = [[0 for _ in range(n)] for _ in range(n)]
-        print(self.board)
         self.solutions = []
 
     def __str__(self):
