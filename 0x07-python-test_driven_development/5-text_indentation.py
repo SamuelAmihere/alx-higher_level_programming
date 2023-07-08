@@ -17,7 +17,7 @@ def text_indentation(text):
     for c in ".?:":
         text = text.replace(c, c + "\n\n")
     print("\n".join([line.strip() for line in text.split("\n")]), end="")
-    
+
 
 if __name__ == "__main__":
     import doctest
