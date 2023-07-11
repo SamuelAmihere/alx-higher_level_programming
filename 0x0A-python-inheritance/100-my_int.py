@@ -2,11 +2,11 @@
 
 
 class MyInt(int):
-    """Inherits from int"""
+    """Inherits int"""
     def __eq__(self, other):
-        """inverts == to != and vice versa"""
-        return super().__ne__(other)
+        """inverts == to !="""
+        return int(other) != int(self)
 
     def __ne__(self, other):
-        """inverts != to == and vice versa"""
-        return super().__eq__(other)
+        """inverts != to =="""
+        return int(other) == int(self)
