@@ -1,5 +1,8 @@
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
+>>> isinstance(my_list, list)
+True
+
 >>> my_list.append(1)
 >>> my_list.append(4)
 >>> my_list.append(2)
@@ -55,6 +58,9 @@ Traceback (most recent call last):
 IndexError: list index out of range
 
 >>> my_list2 = MyList([1, 2, 3, 4])
+>>> type(MyList.__dict__['print_sorted'])
+<class 'function'>
+
 >>> print(my_list2)
 [1, 2, 3, 4]
 
