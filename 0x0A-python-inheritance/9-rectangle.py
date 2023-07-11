@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Module with a class Rectangle"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class Rectangle(__import__('7-base_geometry.py').BaseGeometry):
+class Rectangle(BaseGeometry):
     """Inherits BaseGeometry from 7-base_geometry.py"""
     def __init__(self, width, height):
         """Instantiates with width and height"""
@@ -23,4 +24,4 @@ class Rectangle(__import__('7-base_geometry.py').BaseGeometry):
         Returns:
             String representation of rectangle
         """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)i
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
