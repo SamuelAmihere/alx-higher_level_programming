@@ -4,6 +4,6 @@
 
 def read_file(filename=""):
     """Reads a file to print its contents"""
-        with open("filename", 'r', encoding="UTF-8") as f:
+        with open(filename, 'r', encoding="UTF-8") as f:
             while (f.next()):
                 print(f.readline(), end="")
