@@ -24,7 +24,7 @@ status_counts = {}
 
 try:
     for i, line in enumerate(sys.stdin):
-        data = line.split(" ")
+        data = line[:-1].split(" ")
         if len(data) < 2:
             continue
         status_code = data[-2]
