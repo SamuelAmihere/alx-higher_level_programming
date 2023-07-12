@@ -16,22 +16,28 @@ status_counts = {}
 
 try:
     for i, line in enumerate(sys.stdin):
-        data = line.split()
+        data = line.split(" ")
         if len(data) < 2:
             continue
         status_code = data[-2]
-        file_size = int(data[-1])
 
-        total_file_size += file_size
+        try:
+            total_file_size += int(data[-1])
+        except (IndexError, ValueError):
+            pass
 
         status_counts[status_code] = status_counts.get(status_code, 0) + 1
 
-        if i % 10 == 0:
-            print(f"File size: {total_file_size}")
+        if (i+1) % 10 == 0:
+            print("File size: {}".format(total_file_size))
             for code in sorted(status_counts):
-                print(f"{code}: {status_counts[code]}")
+                print("{}: {}".format(code, status_counts[code]))
 
-except KeyboardInterrupt:
-    print(f"File size: {total_file_size}")
+    print("File size: {}".format(total_file_size))
     for code in sorted(status_counts):
-        print(f"{code}: {status_counts[code]}")
+        print("{}: {}".format(code, status_counts[code]))
+except KeyboardInterrupt:
+    print("File size: {}".format(total_file_size))
+    for code in sorted(status_counts):
+        print("{}: {}".format(code, status_counts[code]))
+    raise
