@@ -27,7 +27,7 @@ status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0,
 try:
     for i, line in enumerate(sys.stdin):
         try:
-            data = line[:-1].split(" ")
+            data = line[:-1].split()
             if len(data) < 2:
                 continue
             status_code = int(data[-2])
