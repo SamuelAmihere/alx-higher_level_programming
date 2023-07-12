@@ -26,8 +26,6 @@ status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0,
 
 try:
     for i, line in enumerate(sys.stdin):
-        if (i+1) % 10 == 0:
-            print_metrics(total_file_size, status_counts)
         try:
             data = line[:-1].split(" ")
             if len(data) < 2:
@@ -40,6 +38,9 @@ try:
                     status_counts.get(status_code, 0) + 1
         except (IndexError, ValueError):
             pass
+
+        if (i+1) % 10 == 0:
+            print_metrics(total_file_size, status_counts)
 
     print_metrics(total_file_size, status_counts)
 except KeyboardInterrupt:
