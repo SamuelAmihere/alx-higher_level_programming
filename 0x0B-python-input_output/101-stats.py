@@ -21,7 +21,8 @@ def print_metrics(total_file_size, status_counts):
 
 
 total_file_size = 0
-status_counts = {}
+status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0,
+                 405: 0, 500: 0}
 
 try:
     for i, line in enumerate(sys.stdin):
@@ -33,7 +34,9 @@ try:
             status_code = int(data[-2])
             total_file_size += int(data[-1])
 
-            status_counts[status_code] = status_counts.get(status_code, 0) + 1
+            if status_code in status_counts:
+                status_counts[status_code] =
+                status_counts.get(status_code, 0) + 1
         except (IndexError, ValueError):
             pass
 
