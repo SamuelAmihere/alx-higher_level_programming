@@ -9,9 +9,6 @@ input of a keyboard interruption (CTRL + C):
 """
 
 
-import sys
-
-
 def print_metrics(total_file_size, status_counts):
     """Prints metrics from the given data."""
     print("File size: {}".format(total_file_size))
@@ -20,29 +17,39 @@ def print_metrics(total_file_size, status_counts):
             print("{}: {}".format(code, status_counts[code]))
 
 
-total_file_size = 0
-status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0,
-                 405: 0, 500: 0}
+if __name__ == "__main__":
+    import sys
 
-try:
-    for i, line in enumerate(sys.stdin):
-        try:
-            data = line[:-1].split()
-            if len(data) < 2:
-                continue
-            status_code = int(data[-2])
-            total_file_size += int(data[-1])
+    size = 0
+    status_codes = {}
+    valid_codes = {'200', '301', '400', '401', '403',
+                   '404', '405', '500'}
+    count = 0
 
-            if status_code in status_counts:
-                status_counts[status_code] = \
-                    status_counts.get(status_code, 0) + 1
-        except (IndexError, ValueError):
-            pass
+    try:
+        for line in sys.stdin:
+            if count == 10:
+                print_metrics(size, status_codes)
+                count = 1
+            else:
+                count += 1
 
-        if (i+1) % 10 == 0:
-            print_metrics(total_file_size, status_counts)
+            line = line.strip().split()
 
-    print_metrics(total_file_size, status_counts)
-except KeyboardInterrupt:
-    print_metrics(total_file_size, status_counts)
-    raise
+            try:
+                size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if line[-2] in valid_codes:
+                    status_codes[line[-2]] =\
+                        status_codes.get(line[-2], 0) + 1
+            except IndexError:
+                pass
+
+        print_metrics(size, status_codes)
+
+    except KeyboardInterrupt:
+        print_metrics(size, status_codes)
+        raise
