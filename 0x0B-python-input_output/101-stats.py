@@ -11,6 +11,14 @@ input of a keyboard interruption (CTRL + C):
 
 import sys
 
+
+def print_metrics(total_file_size, status_counts):
+    """Prints metrics from the given data."""
+    print("File size: {}".format(total_file_size))
+    for code in sorted(status_counts):
+        print("{}: {}".format(code, status_counts[code]))
+
+
 total_file_size = 0
 status_counts = {}
 
@@ -29,15 +37,9 @@ try:
         status_counts[status_code] = status_counts.get(status_code, 0) + 1
 
         if (i+1) % 10 == 0:
-            print("File size: {}".format(total_file_size))
-            for code in sorted(status_counts):
-                print("{}: {}".format(code, status_counts[code]))
+            print_metrics(total_file_size, status_counts)
 
-    print("File size: {}".format(total_file_size))
-    for code in sorted(status_counts):
-        print("{}: {}".format(code, status_counts[code]))
+    print_metrics(total_file_size, status_counts)
 except KeyboardInterrupt:
-    print("File size: {}".format(total_file_size))
-    for code in sorted(status_counts):
-        print("{}: {}".format(code, status_counts[code]))
+    print_metrics(total_file_size, status_counts)
     raise
