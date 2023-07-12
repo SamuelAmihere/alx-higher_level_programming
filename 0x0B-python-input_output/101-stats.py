@@ -11,25 +11,27 @@ input of a keyboard interruption (CTRL + C):
 
 import sys
 
-def print_metrics(total_file_size, valid_codes):
-    """Prints the metrics"""
-    print("File size: {}".format(total_file_size))
-    for key in sorted(valid_codes.keys()):
-        if valid_codes[key] > 0:
-            print("{}: {}".format(key, valid_codes[key]))
-
-valid_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+total_file_size = 0
+status_counts = {}
 
 try:
-    for line in sys.stdin:
+    for i, line in enumerate(sys.stdin):
         data = line.split()
-        if len(data) > 2:
-            status_code = int(data[-2])
-            file_size = int(data[-1])
-            if status_code in valid_codes:
-                valid_codes[status_code] += 1
-            print("File size: {}".format(file_size))
-            print("Status code: {}".format(status_code))
+        if len(data) < 2:
+            continue
+        status_code = data[-2]
+        file_size = int(data[-1])
+
+        total_file_size += file_size
+
+        status_counts[status_code] = status_counts.get(status_code, 0) + 1
+
+        if i % 10 == 0:
+            print(f"File size: {total_file_size}")
+            for code in sorted(status_counts):
+                print(f"{code}: {status_counts[code]}")
+
 except KeyboardInterrupt:
-    print_metrics(file_size, valid_codes)
-    raise
+    print(f"File size: {total_file_size}")
+    for code in sorted(status_counts):
+        print(f"{code}: {status_counts[code]}")
