@@ -16,7 +16,8 @@ def print_metrics(total_file_size, status_counts):
     """Prints metrics from the given data."""
     print("File size: {}".format(total_file_size))
     for code in sorted(status_counts):
-        print("{}: {}".format(code, status_counts[code]))
+        if status_counts[code] > 0:
+            print("{}: {}".format(code, status_counts[code]))
 
 
 total_file_size = 0
@@ -24,17 +25,17 @@ status_counts = {}
 
 try:
     for i, line in enumerate(sys.stdin):
-        data = line[:-1].split(" ")
-        if len(data) < 2:
-            continue
-        status_code = data[-2]
 
         try:
+            data = line[:-1].split(" ")
+            if len(data) < 2:
+                continue
+            status_code = int(data[-2])
             total_file_size += int(data[-1])
+
+            status_counts[status_code] = status_counts.get(status_code, 0) + 1
         except (IndexError, ValueError):
             pass
-
-        status_counts[status_code] = status_counts.get(status_code, 0) + 1
 
         if (i+1) % 10 == 0:
             print_metrics(total_file_size, status_counts)
