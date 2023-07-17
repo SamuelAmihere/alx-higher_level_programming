@@ -89,5 +89,5 @@ class TestBase(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertEqual(s1 == s2, False)
         self.assertEqual(s1 is s2, False)
-        self.assertEqual(s1.__str__(), "[Square] (2) 1/0 - 3")
-        self.assertEqual(s2.__str__(), "[Square] (2) 1/0 - 3")
+        self.assertEqual(s1.__str__(), "[Square] (4) 1/0 - 3")
+        self.assertEqual(s2.__str__(), "[Square] (4) 1/0 - 3")
