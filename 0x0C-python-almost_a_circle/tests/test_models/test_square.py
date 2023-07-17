@@ -47,7 +47,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.height, 2)
         s3 = Square(8, 0, 0, 12)
         self.assertEqual(s3.height, 8)
-        s4 = Square(2, 4, 12, 9, 1)
+        s4 = Square(2, 4, 12, 9)
         self.assertEqual(s4.height, 2)
 
         # assertRaises Test for height
@@ -67,7 +67,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.x, 3)
         s3 = Square(8, 0, 0, 12)
         self.assertEqual(s3.x, 0)
-        s4 = Square(2, 4, 12, 9, 1)
+        s4 = Square(2, 4, 12, 9)
         self.assertEqual(s4.x, 4)
 
         # assertRaises Test for x
@@ -89,18 +89,17 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.y, 4)
         s3 = Square(8, 0, 0, 12)
         self.assertEqual(s3.y, 0)
-        s4 = Square(2, 4, 12, 9, 1)
+        s4 = Square(2, 4, 12, 9)
         self.assertEqual(s4.y, 12)
 
         # assertRaises Test for y
         # TypeError: y must be an integer
-        self.assertRaises(TypeError, Square, *[1, 2, 3, "4"])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, {4}])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, [4]])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, (4,)])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, None])
+        self.assertRaises(TypeError, Square, *[1, 2, {4}], 3)
+        self.assertRaises(TypeError, Square, *[1, 2, [4]], 3)
+        self.assertRaises(TypeError, Square, *[1, 2, (4,)], 3)
+        self.assertRaises(TypeError, Square, *[1, 2, None], 3)
         # ValueError: y must be >= 0
-        self.assertRaises(ValueError, Square, *[1, 2, 3, -4])
+        self.assertRaises(ValueError, Square, *[1, 2, -4, 3])
 
     # ---------------------------Tests for id-------------------------
     def test_id(self):
@@ -112,15 +111,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.id, 2)
         s3 = Square(8, 0, 0, 12)
         self.assertEqual(s3.id, 12)
-        s4 = Square(2, 4, 12, 9, 1)
+        s4 = Square(2, 4, 12, 1)
         self.assertEqual(s4.id, 1)
-
-        # assertRaises Test for id
-        # TypeError: id must be an integer
-        self.assertRaises(TypeError, Square, *[1, 2, 3, 4.0])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, {4}])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, [4]])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, (4,)])
-        self.assertRaises(TypeError, Square, *[1, 2, 3, None])
-        # ValueError: id must be >= 0
-        self.assertRaises(ValueError, Square, *[1, 2, 3, -4])
+        s5 = Square(2, 4, 12, "9")
+        self.assertEqual(s5.id, "9")
