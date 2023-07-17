@@ -91,3 +91,37 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1 is s2, False)
         self.assertEqual(s1.__str__(), "[Square] (4) 1/0 - 3")
         self.assertEqual(s2.__str__(), "[Square] (4) 1/0 - 3")
+
+    # test for load_from_file
+    def test_load_from_file(self):
+        """Test for load_from_file"""
+
+        # rectangle
+        r1 = Rectangle(3, 5, 1)
+        r2 = Rectangle(3, 5, 1, 2, 12)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        # assertEqual Test for load_from_file
+        self.assertEqual(list_rectangles_input[0].__str__(),
+                         list_rectangles_output[0].__str__())
+        self.assertEqual(list_rectangles_input[1].__str__(),
+                         list_rectangles_output[1].__str__())
+        # raise Test for load_from_file
+        self.assertRaises(TypeError, Rectangle.load_from_file, *[1, 2, 3])
+        self.assertRaises(TypeError, Rectangle.load_from_file, *["1", 2, 3])
+
+        # square
+        s1 = Square(3, 1)
+        s2 = Square(3, 1, 2, 12)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+        # assertEqual Test for load_from_file
+        self.assertEqual(list_squares_input[0].__str__(),
+                         list_squares_output[0].__str__())
+        self.assertEqual(list_squares_input[1].__str__(),
+                         list_squares_output[1].__str__())
+        # raise Test for load_from_file
+        self.assertRaises(TypeError, Square.load_from_file, *[1, 2, 3])
+        self.assertRaises(TypeError, Square.load_from_file, *["1", 2, 3])
