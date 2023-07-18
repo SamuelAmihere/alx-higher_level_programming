@@ -12,6 +12,10 @@ class TestSquare(unittest.TestCase):
         """Resets the number of objects"""
         Base._Base__nb_objects = 0
 
+    def tearDown(self):
+        """Performs clean ups after every test"""
+        pass
+
     # ---------------------------Tests for width-------------------------
     def test_width(self):
         """Test for width"""
@@ -115,3 +119,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s4.id, 1)
         s5 = Square(2, 4, 12, "9")
         self.assertEqual(s5.id, "9")
+
+    # ---------------------------Tests for area-------------------------
+    def test_area(self):
+        """Test for area"""
+        # assertEquals Test for area
+        s1 = Square(10)
+        self.assertEqual(s1.area(), 100)
+
+        self.assertRaises(TypeError, s1.area, *[1])
