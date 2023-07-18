@@ -227,3 +227,8 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fo:
             r1.display()
             self.assertEqual(fo.getvalue(), "##\n##\n")
+
+        r2 = Rectangle(3, 2, 1, 1)
+        with patch('sys.stdout', new=StringIO()) as fo:
+            r2.display()
+            self.assertEqual(fo.getvalue(), "\n ###\n ###\n")
