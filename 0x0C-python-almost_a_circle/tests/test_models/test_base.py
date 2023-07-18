@@ -231,3 +231,25 @@ class TestBase(unittest.TestCase):
         # assertRaises Test for __str__
         self.assertRaises(TypeError, s1.__str__, *[1, 2, 3])
         self.assertRaises(TypeError, s1.__str__, *["1", 2, 3])
+
+    # test for draw
+    def test_draw(self):
+        """Test for draw"""
+
+        # rectangle and square
+        r1 = Rectangle(100, 40)
+        r2 = Rectangle(90, 110, 30, 10)
+        r3 = Rectangle(20, 25, 110, 80)
+        s1 = Square(35)
+        s2 = Square(15, 70, 50)
+        s3 = Square(80, 30, 70)
+
+        list_rectangles = [r1, r2, r3]
+        list_squares = [s1, s2, s3]
+
+        # assertEqual Test for draw
+        self.assertEqual(Base.draw(list_rectangles, list_squares), None)
+
+        # raise Test for draw
+        self.assertRaises(TypeError, Base.draw, list_rectangles)
+        self.assertRaises(TypeError, Base.draw, list_squares)
