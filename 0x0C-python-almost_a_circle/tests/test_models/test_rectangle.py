@@ -233,6 +233,11 @@ class TestRectangle(unittest.TestCase):
             r2.display()
             self.assertEqual(fo.getvalue(), "\n ###\n ###\n")
 
+        r2.height = 1
+        with patch('sys.stdout', new=StringIO()) as fo:
+            r2.display()
+            self.assertEqual(fo.getvalue(), "\n ###\n")
+
         # assertRaises Test for display
         r3 = Rectangle(3, 2)
         self.assertRaises(TypeError, r3.display, 1)
