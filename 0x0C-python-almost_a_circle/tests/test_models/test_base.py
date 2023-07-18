@@ -124,7 +124,7 @@ class TestBase(unittest.TestCase):
                          list_squares_output[1].__str__())
         # raise Test for load_from_file
         self.assertRaises(TypeError, Square.load_from_file, *[1, 2, 3])
-        self.assertRaises(TypeError, Square.load_from_file, *["1", 2, 3]9)
+        self.assertRaises(TypeError, Square.load_from_file, *["1", 2, 3])
 
     # test for save_to_file
     def test_save_to_file(self):
