@@ -42,7 +42,7 @@ class Base:
         turtle.title("Squares and Rectangles")
         turtle.bgcolor("black")
         turtle.pensize(3)
-        turtle.speed(1)
+        turtle.speed(0)
         turtle.hideturtle()
 
         # Draw the Rectangles and Squares
@@ -73,7 +73,7 @@ class Base:
                 turtle.right(90)
                 # print the id in the middle of the square
 
-        turtle.exitonclick()
+        turtle.bye()
 
     # --------------------------Class Methods-------------------------
     @classmethod
