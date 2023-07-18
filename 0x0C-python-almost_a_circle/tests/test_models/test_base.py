@@ -206,3 +206,28 @@ class TestBase(unittest.TestCase):
         self.assertRaises(TypeError, Square.load_from_file_csv, *[1, 2, 3])
         self.assertRaises(TypeError, Square.load_from_file_csv, *["1", 2, 3])
         self.assertRaises(TypeError, Square.load_from_file_csv, ['s', 's2'])
+
+    # test for __str__
+    def test_str(self):
+        """Test for __str__"""
+        # rectangle
+        r1 = Rectangle(3, 5, 1)
+        # assertEquals Test for __str__
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 1/0 - 3/5")
+        r2 = Rectangle(3, 5, 1, 2, 12)
+        self.assertEqual(r2.__str__(), "[Rectangle] (12) 1/2 - 3/5")
+        self.assertEqual(type(r2.__str__()), str)
+        # assertRaises Test for __str__
+        self.assertRaises(TypeError, r1.__str__, *[1, 2, 3])
+        self.assertRaises(TypeError, r1.__str__, *["1", 2, 3])
+
+        # square
+        s1 = Square(3, 1)
+        # assertEquals Test for __str__
+        self.assertEqual(s1.__str__(), "[Square] (2) 1/0 - 3")
+        s2 = Square(3, 1, 2, 12)
+        self.assertEqual(s2.__str__(), "[Square] (12) 1/2 - 3")
+        self.assertEqual(type(s2.__str__()), str)
+        # assertRaises Test for __str__
+        self.assertRaises(TypeError, s1.__str__, *[1, 2, 3])
+        self.assertRaises(TypeError, s1.__str__, *["1", 2, 3])
