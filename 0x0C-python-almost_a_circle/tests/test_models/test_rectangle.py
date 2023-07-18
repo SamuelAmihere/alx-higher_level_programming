@@ -4,6 +4,8 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+from unittest.mock import patch
+from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
@@ -215,3 +217,13 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r3.area, "1")
         self.assertRaises(TypeError, r4.area, [1])
         self.assertRaises(TypeError, r1.area, (1,))
+
+    def test_display(self):
+        """
+        Test for display
+        """
+        # assertEquals Test for display
+        r1 = Rectangle(2, 2)
+        with patch('sys.stdout', new=StringIO()) as fo:
+            r1.display()
+            self.assertEqual(fo.getvalue(), "##\n##\n")
