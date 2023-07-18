@@ -4,6 +4,8 @@
 import unittest
 from models.square import Square
 from models.base import Base
+from unittest.mock import patch
+from io import StringIO
 
 
 class TestSquare(unittest.TestCase):
@@ -128,3 +130,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.area(), 100)
 
         self.assertRaises(TypeError, s1.area, *[1])
+
+    # ---------------------------Tests for display-------------------------
+    def test_display(self):
+        """Test for display"""
+        # assertEquals Test for display
+        s1 = Square(2)
+        with patch('sys.stdout', new=StringIO()) as fo:
+            s1.display()
+            self.assertEqual(fo.getvalue(), "##\n##\n")
