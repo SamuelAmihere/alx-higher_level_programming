@@ -139,3 +139,6 @@ class TestSquare(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fo:
             s1.display()
             self.assertEqual(fo.getvalue(), "##\n##\n")
+
+        # assertRaises Test for display
+        self.assertRaises(TypeError, s1.display, 1)
