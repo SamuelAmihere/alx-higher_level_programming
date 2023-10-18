@@ -4,5 +4,5 @@ SELECT s.title FROM (
 	JOIN tv_show_genres As tg ON
 	g.id = tg.genre_id)
 JOIN tv_shows AS s ON
-	sg.show_id = s.id WHERE g.name = "Comedy"
+	tg.show_id = s.id WHERE g.name = "Comedy"
 ORDER BY s.title ASC;
