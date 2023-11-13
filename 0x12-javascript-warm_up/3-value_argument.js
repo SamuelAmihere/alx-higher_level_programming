@@ -1,5 +1,4 @@
 #!/usr/bin/node
 const arg = process.argv;
-const count = arg.length;
-const msg = count === 2 ? 'No argument' : argv[2]';
+const msg = typeof argv[2] === 'undefined' ? 'No argument' : argv[2]';
 console.log(msg);
