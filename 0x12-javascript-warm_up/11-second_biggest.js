@@ -5,7 +5,7 @@ if (argv.length <= 3) {
 } else {
   const numbers = argv.map(Number)
     .slice(2, argv.length)
-    .sort(function (i, j) => i - j);
+    .sort((i, j) => i - j);
   result = numbers[numbers.length - 2];
   console.log(result);
 }
