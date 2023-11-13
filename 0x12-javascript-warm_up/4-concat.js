@@ -1,4 +1,4 @@
 #!/usr/bin/node
-const count = process.argv.length;
-const msg = count === 2 ? 'No argument' : count === 3 ? 'Argument found' : 'Arguments found';
+const argv = process.argv;
+const msg = `${argv[2]} is ${argv[3]}`;
 console.log(msg);
