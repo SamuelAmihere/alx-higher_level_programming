@@ -1,4 +1,4 @@
 #!/usr/bin/node
-const arg = process.argv;
-const msg = typeof argv[2] === 'undefined' ? 'No argument' : argv[2]';
+const argv = process.argv[2];
+const msg = typeof argv === 'undefined' ? 'No argument' : argv;
 console.log(msg);
