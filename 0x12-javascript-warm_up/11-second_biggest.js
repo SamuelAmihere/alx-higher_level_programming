@@ -6,6 +6,6 @@ if (argv.length <= 3) {
   const numbers = argv.map(Number)
     .slice(2, argv.length)
     .sort((i, j) => i - j);
-  result = numbers[numbers.length - 2];
+  const result = numbers[numbers.length - 2];
   console.log(result);
 }
