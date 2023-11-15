@@ -2,12 +2,10 @@
 const dict = require('./101-data.js').dict;
 let dictNew = {};
 for (let key in dict) {
-  var value = dictNew[dict[key]];
-  if (value === undefined) {
-    value = [key];
+  if (dictNew[dict[key]] === undefined) {
+    dictNew[dict[key]] = [key];
   } else {
-    value.push(key);
+    dictNew[dict[key]].push(key);
   }
-  dictNew[dict[key]] = value;
 }
 console.log(dictNew);
