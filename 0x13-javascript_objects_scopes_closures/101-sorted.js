@@ -1,7 +1,11 @@
-t { dict } = require('./101-data');
-const converted = Object.entries(dict);
-const newDict = {};
-converted.forEach(item => {
-  newDict[item[1]] ? newDict[item[1]].push(item[0]) : newDict[item[1]] = [item[0]];
-});
+#!/usr/bin/node
+const dict = require('./101-data.js').dict;
+let newDict = {};
+for (let key in dict) {
+  if (newDict[dict[key]] === undefined) {
+    newDict[dict[key]] = [key];
+  } else {
+    newDict[dict[key]].push(key);
+  }
+}
 console.log(newDict);
