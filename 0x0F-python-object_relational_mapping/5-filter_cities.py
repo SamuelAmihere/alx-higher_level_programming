@@ -20,5 +20,5 @@ if __name__ == "__main__":
 
     for c in exe.fetchall():
         if state == c[4]:
-            print(c)
+            print(c[2])
     exe.close()
