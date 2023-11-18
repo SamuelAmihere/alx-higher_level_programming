@@ -12,5 +12,5 @@ if __name__ == "__main__":
     exe.execute("SELECT *   FROM `states`")
     for state in exe.fetchall():
         if state_arg == state[1]:
-           print(state)
+            print(state)
     exe.close()
