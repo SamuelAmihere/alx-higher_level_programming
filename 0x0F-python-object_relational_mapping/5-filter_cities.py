@@ -19,6 +19,6 @@ if __name__ == "__main__":
     exe.execute(sqlStatement)
 
     for c in exe.fetchall():
-        if state == c[4]
-        print(c)
+        if state == c[4]:
+            print(c)
     exe.close()
