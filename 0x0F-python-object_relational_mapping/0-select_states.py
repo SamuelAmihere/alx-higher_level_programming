@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to perform sql query"""
+"""Script to perform sql query."""
 
 import sys
 import MySQLdb
