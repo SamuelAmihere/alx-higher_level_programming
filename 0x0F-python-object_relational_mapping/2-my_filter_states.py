@@ -10,7 +10,7 @@ if __name__ == "__main__":
     db = MySQLdb.connect(args[1], passwd=args[2], db=args[3])
     exe = db.cursor()
     exe.execute("SELECT * FROM `states` \
-         WHERE BINARY `name` = {}".format(state))
+         WHERE BINARY `name` = `{}`".format(state))
 
     for state in exe.fetchall():
         print(state)
