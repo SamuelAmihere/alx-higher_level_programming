@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
     args = sys.argv
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    
+
     exe = db.cursor()
     exe.execute(sqlStatement)
-    
+
     for c in exe.fetchall():
         print(c)
     exe.close()
