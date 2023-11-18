@@ -18,7 +18,6 @@ if __name__ == "__main__":
     exe = db.cursor()
     exe.execute(sqlStatement)
 
-    for c in exe.fetchall():
-        if state == c[4]:
-            print(c[2])
+    result = [c[2] for c in exe.fetchall() state == c[4]]
+    print(", ".join(result))
     exe.close()
