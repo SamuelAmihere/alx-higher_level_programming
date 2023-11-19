@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""Deletes all State objects with a name containing 'a' \
-    from hbtn_0e_6_usa db.
+"""Creates the State 'California' with the City \
+'San Francisco' in hbtn_0e_6_usa db.
 """
 
 import sys
 from model_state import State
+from relationship_city import City, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -17,8 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State)
-    for state in result:
-        if "a" in state.name:
-            session.delete(state)
+    city = "San Francisco"
+    state = "California"
+    session.add(City(name=city, state=State(name=state)))
     session.commit()
