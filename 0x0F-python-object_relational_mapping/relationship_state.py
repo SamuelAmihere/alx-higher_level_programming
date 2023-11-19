@@ -2,21 +2,20 @@
 """Defines a State model from hbtn_0e_6_usa db.
 """
 
-from relationship_city import City, Base
-from sqlalchemy import Column, Integer, String
+m sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from relationship_city import Base, City
 
 
-class City(Base):
-    """A state model for creatig state objects for
-    MySQL database.
+class State(Base):
+    """Represents a state for a MySQL database.
 
-    id (sqlalchemy.Integer): State id in State table.
-    name (sqlalchemy.String): State name in State table.
-    cities: State-City relationship.
-    __tablename__ (str): Table name to store state.
-
+    Attributes:
+        __tablename__ (str): The name of the MySQL table to store States.
+        id (sqlalchemy.Integer): The state's id.
+        name (sqlalchemy.String): The state's name.
+        cities (sqlalchemy.orm.relationship): The State-City relationship.
     """
     __tablename__ = "states"
     id = Column(Integer, primary_key=True)
