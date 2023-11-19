@@ -12,7 +12,8 @@ if __name__ == "__main__":
     url = "mysql+mysqldb://{}:{}@localhost/{}".format(args[1],
                                                       args[2], args[3])
     engine = create_engine(url=url, pool_pre_ping=True)
-    session = sessionmaker(binddddd=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
     results = session.query(State).order_by(State.id)
     for state in results:
         print("{}: {}".format(state.id, state.name))
