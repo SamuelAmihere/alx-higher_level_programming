@@ -16,7 +16,7 @@ if __name__ == "__main__":
     session = Session()
 
     fstate = session.query(State).order_by(State.id).first()
-    if fstate == None:
-        print("Nothing")
-    else:
+    if fstate:
         print("{fstate.id}: {fstate.name}")
+    else:
+        print("Nothing")
