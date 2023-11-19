@@ -3,7 +3,7 @@
 """
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 Base = declarative_base()
 
@@ -14,6 +14,7 @@ class City(Base):
 
     id (sqlalchemy.Integer): City id in the table.
     name (sqlalchemy.String): City name in the table.
+    state_id: City's state id.
     __tablename__ (str): Table name to store cities.
 
     """
