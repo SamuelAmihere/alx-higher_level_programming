@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
+
 class City(Base):
     """A city model for creatig city objects for
     MySQL database.
