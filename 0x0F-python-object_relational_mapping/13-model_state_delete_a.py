@@ -10,7 +10,6 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
-    flag = False
     args = sys.argv
     url = "mysql+mysqldb://{}:{}@localhost/{}".format(args[1],
                                                       args[2], args[3])
