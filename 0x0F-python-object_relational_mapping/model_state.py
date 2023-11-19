@@ -4,9 +4,9 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import (Integer, Column, String)
 
-BaseModel = declarative_base()
+Base = declarative_base()
 
-class State(BaseModel):
+class State(Base):
     """A state model for creatig state objects for
     MySQL database.
 
