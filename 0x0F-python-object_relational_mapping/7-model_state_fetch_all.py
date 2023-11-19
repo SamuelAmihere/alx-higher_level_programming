@@ -1,4 +1,4 @@
-ii#!/usr/bin/python3
+#!/usr/bin/python3
 """Script lists all state objects from hbtn_0e_6_usa db."""
 
 from model_state import State
