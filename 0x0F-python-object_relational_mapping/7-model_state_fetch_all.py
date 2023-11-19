@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 if __name__ == "__main__":
     args = sys.argv
     url = "mysql+mysqldb://{}:{}@localhost/{}".format(args[1],
-        sys.argv[2], sys.argv[3])
+                                                      args[2], args[3])
     engine = create_engine(url=url, pool_pre_ping=True)
     session = sessionmaker(binddddd=engine)
     results = session.query(State).order_by(State.id)
