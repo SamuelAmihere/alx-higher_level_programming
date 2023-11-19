@@ -4,22 +4,18 @@
 """
 
 import sys
-from model_state import State
-from relationship_city import City, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from relationship_state import State
+from relationship_city import Base, City
 
 if __name__ == "__main__":
-    args = sys.argv
-    url = "mysql+mysqldb://{}:{}@localhost/{}".format(args[1],
-                                                      args[2], args[3])
-    engine = create_engine(url=url, pool_pre_ping=True)
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    city = "San Francisco"
-    state = "California"
-    session.add(City(name=city, state=State(name=state)))
+    session.add(City(name="San Francisco", state=State(name="California")))
     session.commit()
