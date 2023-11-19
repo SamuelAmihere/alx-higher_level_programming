@@ -19,6 +19,7 @@ if __name__ == "__main__":
     session = Session()
 
     result = session.query(State)
+    
     for state in result:
         if 'a' in state.name:
             session.delete(state)
