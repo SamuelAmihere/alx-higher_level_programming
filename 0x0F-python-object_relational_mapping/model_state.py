@@ -6,6 +6,7 @@ from sqlalchemy import Integer, Column, String
 
 Base = declarative_base()
 
+
 class State(Base):
     """A state model for creatig state objects for \
     MySQL database.
