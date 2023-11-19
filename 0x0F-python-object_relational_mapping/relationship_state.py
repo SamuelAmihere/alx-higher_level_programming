@@ -9,13 +9,14 @@ from relationship_city import Base, City
 
 
 class State(Base):
-    """Represents a state for a MySQL database.
+    """A state model for creatig state objects for
+    MySQL database.
 
-    Attributes:
-        __tablename__ (str): The name of the MySQL table to store States.
-        id (sqlalchemy.Integer): The state's id.
-        name (sqlalchemy.String): The state's name.
-        cities (sqlalchemy.orm.relationship): The State-City relationship.
+    id (sqlalchemy.Integer): State id in State table.
+    name (sqlalchemy.String): State name in State table.
+    cities: State-City relationship.
+    __tablename__ (str): Table name to store state.
+
     """
     __tablename__ = "states"
     id = Column(Integer, primary_key=True)
