@@ -6,7 +6,7 @@
 def find_peak(list_of_integers):
     """Finds peak of list_of_integers or None
     """
-    if len(list_of_integers) == 0:
+    if list_of_integers == []:
         return None
 
     size = len(list_of_integers)
