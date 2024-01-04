@@ -2,5 +2,5 @@
 
 const req = require('request');
 req.get(process.argv[2]).on('response', res => {
-	console.log(`code: ${res.statusCode}`);
+  console.log(`code: ${res.statusCode}`);
 });

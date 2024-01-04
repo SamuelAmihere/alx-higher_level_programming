@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
 const req = require('request');
-const req_id = process.argv[2];
-req(req_id, (err, res, body) => {
-  if (!error) {
+const id = process.argv[2];
+req(id, (err, res, body) => {
+  if (!err) {
     const results = JSON.parse(body).results;
     console.log(results.reduce((count, movie) => {
       return movie.characters.find((character) => character.endsWith('/18/'))
